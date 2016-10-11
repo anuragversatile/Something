@@ -61,6 +61,20 @@ public class DbHelper extends SQLiteOpenHelper {
             Contract.TasksDone.COLUMN_NAME_TASK_ID+ INTEGER_TYPE+COMMA_SEP+COMMA_SEP+
             "FOREIGN KEY ("+ Contract.TasksDone.COLUMN_NAME_TASK_ID+" REFERENCES "+ Contract.Task.TABLE_NAME+"("+ Contract.Task._ID+")"+
             ")";
+
+    private static final String CREATE_LABEL="CREATE TABLE "+ Contract.Label.TABLE_NAME+"("+
+            Contract.Label._ID+" INTEGER PRIMARY KEY"+COMMA_SEP+
+            Contract.Label.COLUMN_NAME_LABEL_NAME+TEXT_TYPE+COMMA_SEP+
+            Contract.Label.COLUMN_NAME_LABEL_RATING+INTEGER_TYPE+COMMA_SEP+
+            "FOREIGN KEY ("+ Contract.Label._ID+") REFERENCES "+ Contract.Label_Tasks.TABLE_NAME+"("+ Contract.Label_Tasks.COLUMN_NAME_LABEL_ID+")"+
+            ")";
+    private static final String CREATE_LABEL_TASKS="CREATE TABLE "+ Contract.Label_Tasks.TABLE_NAME+"("+
+            Contract.Label_Tasks._ID+" INTEGER PRIMARY KEY"+COMMA_SEP+
+            Contract.Label_Tasks.COLUMN_NAME_LABEL_ID+INTEGER_TYPE+COMMA_SEP+
+            Contract.Label_Tasks.COLUMN_NAME_TASK_ID+INTEGER_TYPE+COMMA_SEP+
+            "FOREIGN KEY ("+ Contract.Label_Tasks.COLUMN_NAME_TASK_ID+")"+" REFERENCES "+ Contract.Task.TABLE_NAME+"("+ Contract.Task._ID+")"+
+            ")";
+
     // If you change the database schema, you must increment the database version.
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "SomethingToDo.db";
@@ -75,6 +89,8 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_DAILY_DATA);
         db.execSQL(CREATE_TASKS_TO_BE_DONE);
         db.execSQL(CREATE_TASKS_DONE);
+        db.execSQL(CREATE_LABEL);
+        db.execSQL(CREATE_LABEL_TASKS);
     }
 
     @Override
