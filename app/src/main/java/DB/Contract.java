@@ -57,4 +57,16 @@ public class Contract {
         public static final String COLUMN_NAME_DAILY_ID="daily_id";
         public static final String COLUMN_NAME_TASK_ID="task_id";
     }//todo: FOREIGN KEY(task_id) REFERENCES Task(_ID)
+
+    public static class Label implements BaseColumns{
+        public static final String TABLE_NAME="label";
+        public static final String COLUMN_NAME_LABEL_NAME="label_name";
+        public static final String COLUMN_NAME_LABEL_RATING="label_rating";
+    }//// todo: FOREIGN KEY(_ID) REFERENCES label_tasks(label_id)
+
+    public static class Label_Tasks implements BaseColumns{
+        public static final String TABLE_NAME="label_tasks";
+        public static final String COLUMN_NAME_LABEL_ID="label_id";
+        public static final String COLUMN_NAME_TASK_ID="task_id";
+    }//todo: FOREIGN KEY(task_id) references task(_ID)
 }

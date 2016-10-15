@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_new__task"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.lohan.something.New_Task">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:id="@+id/title"
+        android:hint="Task Title" />
+
+    <Button
+        android:text="End Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/endDate"
+        android:layout_alignBaseline="@+id/startDate"
+        android:layout_alignBottom="@+id/startDate"
+        android:layout_alignRight="@+id/repeat"
+        android:layout_alignEnd="@+id/repeat"
+        android:elevation="8dp"
+        android:onClick="showDatePickerDialog"
+
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/repeat"
+        android:layout_above="@+id/revise"
+        android:layout_alignLeft="@+id/revise"
+        android:layout_alignStart="@+id/revise"
+        android:layout_marginBottom="18dp"
+        android:hint="Repeat(days)" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/revise"
+        android:layout_marginBottom="25dp"
+        android:layout_above="@+id/save"
+        android:layout_alignLeft="@+id/save"
+        android:layout_alignStart="@+id/save"
+        android:hint="Revise(days)" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/note"
+        android:layout_above="@+id/repeat"
+        android:layout_alignLeft="@+id/startDate"
+        android:layout_alignStart="@+id/startDate"
+        android:layout_marginBottom="15dp"
+        android:hint="Note" />
+
+    <Switch
+        android:text="Trivial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch1"
+        android:checked="false"
+        android:layout_below="@+id/title"
+        android:layout_alignLeft="@+id/title"
+        android:layout_alignStart="@+id/title"
+        android:layout_marginTop="22dp"
+        android:layout_alignRight="@+id/title"
+        android:layout_alignEnd="@+id/title" />
+
+    <Button
+        android:text="Save( not showing parent/child)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/save"
+        android:elevation="12dp"
+        android:onClick="onSave"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/note"
+        android:layout_alignStart="@+id/note" />
+
+    <Button
+        android:text="Start Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startDate"
+        android:elevation="8dp"
+        android:onClick="showDatePickerDialog"
+        android:layout_above="@+id/note"
+        android:layout_alignLeft="@+id/switch1"
+        android:layout_alignStart="@+id/switch1"
+        android:layout_marginBottom="16dp" />
+
+    <Switch
+        android:text="isParent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch3"
+        android:layout_above="@+id/endDate"
+        android:layout_alignLeft="@+id/endDate"
+        android:layout_alignStart="@+id/endDate"
+        android:layout_marginBottom="19dp" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch2"
+        android:text="isChild"
+        android:layout_alignBaseline="@+id/switch3"
+        android:layout_alignBottom="@+id/switch3"
+        android:layout_alignLeft="@+id/startDate"
+        android:layout_alignStart="@+id/startDate"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
+
+</RelativeLayout>

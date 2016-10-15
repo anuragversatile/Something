@@ -1,5 +1,6 @@
 package com.example.lohan.something;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "LUMPA DUMPA!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -97,5 +98,14 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    public void addNewTask(View view){
+        Intent intent=new Intent(this,New_Task.class);
+        startActivity(intent);
+    }
+    public void addDailyData(View view){
+        Intent intent=new Intent(this,New_DailyData.class);
+        startActivity(intent);
+
     }
 }

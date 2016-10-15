@@ -13,8 +13,29 @@
     tools:context="com.example.lohan.something.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
+    <Button
+        android:text="Task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="51dp"
+        android:id="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="addNewTask"/>
+
+    <Button
+        android:text="Daily Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+        android:layout_marginTop="74dp"
+        android:id="@+id/button2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="addDailyData"/>
 </RelativeLayout>
