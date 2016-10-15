@@ -11,10 +11,19 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
-public class New_Task extends AppCompatActivity implements ChangeDateButton {
+import com.example.lohan.something.ChoiceLists.GetChoices;
+
+public class New_Task extends AppCompatActivity implements ChangeDateButton, GetChoices {
     private View view;
     private Switch aSwitch;
-    EditText revise;
+    EditText reviseEditText;
+    private String date;//creation date//TODO: take timestamp???
+    private boolean trivial;
+    private int parentID;//TODO: _ID can take which2 values???
+    private boolean isParent;
+    private String startDate, endDate;
+    private String note;
+    private int repeat,revise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +31,7 @@ public class New_Task extends AppCompatActivity implements ChangeDateButton {
         setContentView(R.layout.activity_new__task);
 
         aSwitch=(Switch)findViewById(R.id.switch1);
-        revise =(EditText)findViewById(R.id.revise);
+        reviseEditText =(EditText)findViewById(R.id.revise);
         //attach a listener to check for changes in state
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -31,11 +40,13 @@ public class New_Task extends AppCompatActivity implements ChangeDateButton {
                                          boolean isChecked) {
 
                 if(isChecked){
+                    trivial=true;
+                    reviseEditText.setVisibility(View.GONE);
                     Toast.makeText(New_Task.this, "SWITCH ON, trivial tasks not repeated!!!", Toast.LENGTH_SHORT).show();
-                    EditText edit=(EditText)findViewById(R.id.note);
-                    revise.setVisibility(View.GONE);
+
                 }else{
-                    revise.setVisibility(View.VISIBLE);
+                    reviseEditText.setVisibility(View.VISIBLE);
+                    trivial=false;
                     Toast.makeText(New_Task.this, "SWITCH OFF!!!", Toast.LENGTH_SHORT).show();
                 }
 
@@ -50,8 +61,31 @@ public class New_Task extends AppCompatActivity implements ChangeDateButton {
 
     }
     public void onSave(View v){
+        EditText editText=(EditText)findViewById(R.id.note);
+        this.note=editText.getText().toString();
+        editText=(EditText)findViewById(R.id.repeat);
+        if(editText.getText().toString().equals("")){
+            this.repeat=0;
+        }
+        else {
+            this.repeat = Integer.parseInt(editText.getText().toString());
+        }
+        if(trivial){//if it is trivial then donot revise
+            this.revise=-999;
+
+        }
+        else{
+            editText=(EditText)findViewById(R.id.revise);
+            if(editText.getText().toString().equals("")){
+                this.revise=0;
+            }
+            else {
+                this.revise = Integer.parseInt(editText.getText().toString());
+            }
+        }
         Intent intent=new Intent(this,MainActivity.class);
         startActivity(intent);
+
     }
 
     @Override
@@ -59,11 +93,17 @@ public class New_Task extends AppCompatActivity implements ChangeDateButton {
         if(view==findViewById(R.id.startDate)){
             Button button=(Button)findViewById(R.id.startDate);
             button.setText(date);
+            this.startDate=date;
         }
         else {
             Button button = (Button) findViewById(R.id.endDate);
             button.setText(date);
+            this.endDate=date;
         }
     }
 
+    @Override
+    public void getChoices(String[] choices, String title) {
+
+    }
 }

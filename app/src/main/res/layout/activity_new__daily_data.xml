@@ -19,34 +19,9 @@
         android:id="@+id/tasksDone"
         android:layout_alignLeft="@+id/dailyDate"
         android:layout_alignStart="@+id/dailyDate"
-        android:layout_alignRight="@+id/note"
-        android:layout_alignEnd="@+id/note"
-        android:elevation="12dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Note"
-        android:ems="10"
-        android:layout_marginTop="39dp"
-        android:id="@+id/note"
-        android:layout_below="@+id/tasksDone"
-        android:layout_alignLeft="@+id/dailyDate"
-        android:layout_alignStart="@+id/dailyDate" />
-
-    <Button
-        android:text="Fulfilled"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/note"
-        android:layout_alignLeft="@+id/note"
-        android:layout_alignStart="@+id/note"
-        android:layout_marginTop="61dp"
-        android:id="@+id/fulfilled"
+        android:elevation="12dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:elevation="12dp" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="Date"
@@ -65,18 +40,45 @@
         />
 
     <Button
+        android:text="Fulfilled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fulfilledButton"
+        android:elevation="12dp"
+        android:layout_below="@+id/tasksDone"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/tasksDone"
+        android:layout_alignStart="@+id/tasksDone"
+        android:onClick="onFulfilledClicked"/>
+
+    <Button
         android:text="Save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/fulfilled"
-        android:layout_marginTop="52dp"
         android:id="@+id/save"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/fulfilled"
-        android:layout_alignStart="@+id/fulfilled"
         android:elevation="12dp"
         android:onClick="onSave"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/note"
+        android:layout_alignStart="@+id/note" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/note"
+        android:hint="Note"
+        android:layout_marginBottom="41dp"
+        android:layout_above="@+id/save"
+        android:layout_alignLeft="@+id/fulfilledButton"
+        android:layout_alignStart="@+id/fulfilledButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

@@ -12,10 +12,11 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String TEXT_TYPE = " TEXT";
     private static final String COMMA_SEP = ",";
     private static final String INTEGER_TYPE =" INTEGER";
+    private static final String UNIQUE=" UNIQUE";
     private static final String CREATE_TASK="CREATE TABLE "+Contract.Task.TABLE_NAME+"("+
             Contract.Task._ID+" INTEGER PRIMARY KEY"+COMMA_SEP+
             Contract.Task.COLUMN_NAME_TYPE+ TEXT_TYPE +COMMA_SEP+
-            Contract.Task.COLUMN_NAME_TITLE+ TEXT_TYPE+ COMMA_SEP+
+            Contract.Task.COLUMN_NAME_TITLE+ TEXT_TYPE+UNIQUE+ COMMA_SEP+
             Contract.Task.COLUMN_NAME_DATE+ TEXT_TYPE+ COMMA_SEP+
             Contract.Task.COLUMN_NAME_START_DATE+TEXT_TYPE+COMMA_SEP+
             Contract.Task.COLUMN_NAME_END_DATE+ TEXT_TYPE+ COMMA_SEP+
@@ -64,7 +65,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private static final String CREATE_LABEL="CREATE TABLE "+ Contract.Label.TABLE_NAME+"("+
             Contract.Label._ID+" INTEGER PRIMARY KEY"+COMMA_SEP+
-            Contract.Label.COLUMN_NAME_LABEL_NAME+TEXT_TYPE+COMMA_SEP+
+            Contract.Label.COLUMN_NAME_LABEL_NAME+TEXT_TYPE+UNIQUE+COMMA_SEP+
             Contract.Label.COLUMN_NAME_LABEL_RATING+INTEGER_TYPE+COMMA_SEP+
             "FOREIGN KEY ("+ Contract.Label._ID+") REFERENCES "+ Contract.Label_Tasks.TABLE_NAME+"("+ Contract.Label_Tasks.COLUMN_NAME_LABEL_ID+")"+
             ")";
