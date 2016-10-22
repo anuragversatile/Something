@@ -322,7 +322,8 @@ SQLiteDatabase db=this.getWritableDatabase();
     {
         SQLiteDatabase db=this.getWritableDatabase();
         Cursor result=db.rawQuery("select * from"+Contract.Label.TABLE_NAME,null);
-        return result;
+     int x=0;
+        int y=2;        return result;
     }
 
     public Cursor getAnurag()
