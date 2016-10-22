@@ -222,6 +222,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
     public boolean updateTasksToBeDone(Integer new_daily_Id, Integer new_task_Id, SQLiteDatabase db) {
+       int x=1;
         ContentValues contentValues = new ContentValues();
         contentValues.put(Contract.TasksToBeDone.COLUMN_NAME_DAILY_ID, new_daily_Id);
         contentValues.put(Contract.TasksToBeDone.COLUMN_NAME_TASK_ID, new_task_Id);
