@@ -1,4 +1,4 @@
-package DB;
+package com.example.lohan.something.DB;
 
 import android.provider.BaseColumns;
 
