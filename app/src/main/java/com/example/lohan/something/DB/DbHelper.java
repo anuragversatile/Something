@@ -325,7 +325,7 @@ SQLiteDatabase db=this.getWritableDatabase();
         return result;
     }
 
-    public Cursor getLabelTasksData()
+    public Cursor getAnurag()
     {
         SQLiteDatabase db=this.getWritableDatabase();
         Cursor result=db.rawQuery("select * from"+Contract.Label_Tasks.TABLE_NAME,null);
